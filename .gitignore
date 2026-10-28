@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.env
+hardware_config.local.yaml
+data/
+_tmp/
+tests/test_output/
+samples/*
+!samples/.gitkeep
+*.tmp
+*.log
+.venv/
+.pytest_cache/
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store

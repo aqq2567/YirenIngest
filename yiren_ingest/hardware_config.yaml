@@ -1,0 +1,19 @@
+# hardware_config.yaml — YirenIngest 硬件相关默认配置
+# ============================================================
+# 提交到 Git，提供跨机器默认值；按机器调优请创建
+# hardware_config.local.yaml 覆盖（已 gitignore）。
+# ============================================================
+
+# ── ASR 引擎 ──────────────────────────────────────────────
+asr:
+  model: "large-v3"         # Whisper 模型；显存不足可改 medium/small
+  device: "auto"            # auto / cuda / cpu（auto 无 GPU 时自动用 CPU）
+  compute_type: "auto"      # auto / float16 / int8
+  cpu_threads: 4            # device=cpu 时生效
+  whisper_workers: 0        # 0=自动(1路，GPU独占)
+  funasr_workers: 0         # 0=自动(1路，GPU独占)
+  cloud_workers: 0          # 0=自动(4路，网络I/O)
+
+# ── LLM 精修 / 摘要 ───────────────────────────────────────
+refine:
+  workers: 10               # 后处理 API 并发数；遇到限流可调小
